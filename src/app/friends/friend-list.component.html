@@ -1,0 +1,18 @@
+<ActionBar [title]="title">
+  <ActionItem text="Add Friend" (tap)="onAddFriend()" ios.position="right"></ActionItem>
+  <ActionItem text="Meetups" (tap)="onMeetups()" ios.position="right"></ActionItem>
+  <ActionItem text="Friend Finder" (tap)="onFriendFinder()" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout rows="auto, *">
+  <SearchBar row="0" hint="Search friends..." (textChange)="onSearch($event)"></SearchBar>
+  <ListView [items]="friends" row="1" class="list-group">
+    <ng-template let-friend="item">
+      <StackLayout [nsRouterLink]="['/friend', friend.id]" class="list-group-item">
+        <Label [text]="friend.name" class="list-group-item-heading"></Label>
+        <Label [text]="'Age: ' + friend.age" class="list-group-item-text"></Label>
+        <Label [text]="'Location: ' + friend.location" class="list-group-item-text"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>

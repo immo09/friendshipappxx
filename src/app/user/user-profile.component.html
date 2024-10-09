@@ -1,0 +1,17 @@
+<ActionBar title="User Profile">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <Image [src]="currentUser?.profilePicture" width="100" height="100" class="rounded-full"></Image>
+    <Label [text]="currentUser?.name" class="h2 text-center"></Label>
+    <Label [text]="'Age: ' + currentUser?.age" class="body text-center"></Label>
+    <Label [text]="'Bio: ' + currentUser?.bio" class="body text-center" textWrap="true"></Label>
+    <Label text="Interests:" class="h4 m-t-10"></Label>
+    <WrapLayout>
+      <Label *ngFor="let interest of currentUser?.interests" [text]="interest" class="interest-tag"></Label>
+    </WrapLayout>
+    <Button text="Edit Profile" (tap)="onEditProfile()" class="btn btn-primary m-t-20"></Button>
+  </StackLayout>
+</ScrollView>

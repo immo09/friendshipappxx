@@ -1,0 +1,16 @@
+<ActionBar title="Friend Finder">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<StackLayout>
+  <ListView [items]="potentialFriends" class="list-group">
+    <ng-template let-friend="item">
+      <GridLayout rows="auto, auto" columns="*, auto" class="list-group-item">
+        <Label [text]="friend.name" row="0" col="0" class="list-group-item-heading"></Label>
+        <Label [text]="'Age: ' + friend.age" row="1" col="0" class="list-group-item-text"></Label>
+        <Label [text]="'Common Interests: ' + getCommonInterests(friend)" row="1" col="1" class="list-group-item-text"></Label>
+        <Button text="Add Friend" (tap)="onAddFriend(friend)" row="0" col="1"></Button>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</StackLayout>

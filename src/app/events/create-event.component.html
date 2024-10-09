@@ -1,0 +1,15 @@
+<ActionBar title="Create Event">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <TextField [(ngModel)]="newEvent.title" hint="Title" class="input input-border"></TextField>
+    <TextField [(ngModel)]="newEvent.description" hint="Description" class="input input-border"></TextField>
+    <TextField [(ngModel)]="newEvent.location" hint="Location" class="input input-border"></TextField>
+    <DatePicker [(ngModel)]="eventDate"></DatePicker>
+    <TimePicker [(ngModel)]="eventTime"></TimePicker>
+    <TextField [(ngModel)]="newEvent.maxParticipants" hint="Max Participants" keyboardType="number" class="input input-border"></TextField>
+    <Button text="Create Event" (tap)="onCreateEvent()" class="btn btn-primary"></Button>
+  </StackLayout>
+</ScrollView>

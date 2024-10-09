@@ -1,0 +1,19 @@
+<ActionBar [title]="friend?.name || 'Friend Details'">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+  <ActionItem text="Edit" (tap)="onEditFriend()" ios.position="right"></ActionItem>
+  <ActionItem text="Chat" (tap)="onChat()" ios.position="right"></ActionItem>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <Label [text]="'Name: ' + friend?.name" class="h2 text-center"></Label>
+    <Label [text]="'Age: ' + friend?.age" class="body text-center"></Label>
+    <Label [text]="'Location: ' + friend?.location" class="body text-center"></Label>
+    <Label text="Interests:" class="h4 m-t-10"></Label>
+    <ListView [items]="friend?.interests" class="list-group">
+      <ng-template let-interest="item">
+        <Label [text]="interest" class="list-group-item"></Label>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+</ScrollView>

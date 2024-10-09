@@ -1,0 +1,15 @@
+<ActionBar title="Events">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+  <ActionItem text="Create Event" (tap)="onCreateEvent()" ios.position="right"></ActionItem>
+</ActionBar>
+
+<ListView [items]="events" class="list-group">
+  <ng-template let-event="item">
+    <GridLayout rows="auto, auto" columns="*, auto" class="list-group-item">
+      <Label [text]="event.title" row="0" col="0" class="list-group-item-heading"></Label>
+      <Label [text]="event.dateTime | date:'short'" row="0" col="1" class="list-group-item-text"></Label>
+      <Label [text]="event.location" row="1" col="0" class="list-group-item-text"></Label>
+      <Button [text]="isParticipating(event) ? 'Cancel RSVP' : 'RSVP'" (tap)="onRsvp(event)" row="1" col="1"></Button>
+    </GridLayout>
+  </ng-template>
+</ListView>

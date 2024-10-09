@@ -1,0 +1,11 @@
+<StackLayout class="page">
+  <Image src="res://app_icon" width="80" height="80" class="m-20"></Image>
+  <Label text="FriendFinder" class="h1 text-center"></Label>
+  <StackLayout class="form p-10">
+    <TextField [(ngModel)]="email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="input input-border"></TextField>
+    <TextField [(ngModel)]="password" hint="Password" secure="true" class="input input-border"></TextField>
+    <Button text="Log In" (tap)="onLogin()" class="btn btn-primary" [isEnabled]="!isLoading"></Button>
+    <Button text="Register" (tap)="onRegister()" class="btn btn-outline"></Button>
+  </StackLayout>
+  <ActivityIndicator [busy]="isLoading" class="activity-indicator"></ActivityIndicator>
+</StackLayout>

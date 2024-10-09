@@ -1,0 +1,13 @@
+<ActionBar title="Edit Profile">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="form p-10">
+    <TextField [(ngModel)]="user.name" hint="Name" class="input input-border"></TextField>
+    <TextField [(ngModel)]="user.age" hint="Age" keyboardType="number" class="input input-border"></TextField>
+    <TextView [(ngModel)]="user.bio" hint="Bio" class="input input-border"></TextView>
+    <TextField [(ngModel)]="user.interests" hint="Interests (comma-separated)" class="input input-border"></TextField>
+    <Button text="Save Changes" (tap)="onSave()" class="btn btn-primary" [isEnabled]="!isLoading"></Button>
+  </StackLayout>
+</ScrollView>

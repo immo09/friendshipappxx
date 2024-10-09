@@ -1,0 +1,14 @@
+<ActionBar title="Create Meetup">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <TextField [(ngModel)]="newMeetup.title" hint="Title" class="input input-border"></TextField>
+    <TextField [(ngModel)]="newMeetup.description" hint="Description" class="input input-border"></TextField>
+    <TextField [(ngModel)]="newMeetup.location" hint="Location" class="input input-border"></TextField>
+    <DatePicker [(ngModel)]="meetupDate"></DatePicker>
+    <TimePicker [(ngModel)]="meetupTime"></TimePicker>
+    <Button text="Create Meetup" (tap)="onCreateMeetup()" class="btn btn-primary"></Button>
+  </StackLayout>
+</ScrollView>

@@ -1,0 +1,15 @@
+<ActionBar title="Meetups">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+  <ActionItem text="Create Meetup" (tap)="onCreateMeetup()" ios.position="right"></ActionItem>
+</ActionBar>
+
+<ListView [items]="meetups" class="list-group">
+  <ng-template let-meetup="item">
+    <GridLayout rows="auto, auto" columns="*, auto" class="list-group-item">
+      <Label [text]="meetup.title" row="0" col="0" class="list-group-item-heading"></Label>
+      <Label [text]="meetup.dateTime | date:'short'" row="0" col="1" class="list-group-item-text"></Label>
+      <Label [text]="meetup.location" row="1" col="0" class="list-group-item-text"></Label>
+      <Button [text]="isParticipating(meetup) ? 'Leave' : 'Join'" (tap)="onJoinLeave(meetup)" row="1" col="1"></Button>
+    </GridLayout>
+  </ng-template>
+</ListView>

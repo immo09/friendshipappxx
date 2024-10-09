@@ -1,0 +1,13 @@
+<ActionBar title="Edit Friend">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <TextField [(ngModel)]="friend.name" hint="Name" class="input input-border"></TextField>
+    <TextField [(ngModel)]="friend.age" hint="Age" keyboardType="number" class="input input-border"></TextField>
+    <TextField [(ngModel)]="friend.location" hint="Location" class="input input-border"></TextField>
+    <TextField [(ngModel)]="interestsString" hint="Interests (comma-separated)" class="input input-border"></TextField>
+    <Button text="Save Changes" (tap)="onSaveChanges()" class="btn btn-primary"></Button>
+  </StackLayout>
+</ScrollView>

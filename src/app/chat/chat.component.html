@@ -1,0 +1,17 @@
+<ActionBar [title]="friend?.name || 'Chat'">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+</ActionBar>
+
+<GridLayout rows="*, auto">
+  <ListView [items]="messages" row="0">
+    <ng-template let-message="item">
+      <StackLayout [class]="message.senderId === currentUserId ? 'message sent' : 'message received'">
+        <Label [text]="message.content" textWrap="true"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+  <GridLayout columns="*, auto" row="1" class="input-field">
+    <TextField #messageTextField col="0" hint="Type a message" [(ngModel)]="newMessage"></TextField>
+    <Button col="1" text="Send" (tap)="onSendMessage()"></Button>
+  </GridLayout>
+</GridLayout>

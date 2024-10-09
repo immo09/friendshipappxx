@@ -1,0 +1,18 @@
+<ActionBar title="Nearby Users">
+  <ActionItem (tap)="onRefresh()" ios.systemIcon="16" android.systemIcon="ic_menu_refresh" ios.position="right"></ActionItem>
+</ActionBar>
+
+<GridLayout>
+  <ListView [items]="nearbyUsers" class="list-group">
+    <ng-template let-user="item">
+      <GridLayout columns="auto, *" class="list-group-item">
+        <Image [src]="user.profilePicture" width="50" height="50" class="rounded-full"></Image>
+        <StackLayout col="1" class="m-l-15">
+          <Label [text]="user.name" class="h3"></Label>
+          <Label [text]="user.interests.join(', ')" class="body text-muted"></Label>
+        </StackLayout>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+  <ActivityIndicator [busy]="isLoading" class="activity-indicator"></ActivityIndicator>
+</GridLayout>

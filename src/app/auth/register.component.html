@@ -1,0 +1,11 @@
+<StackLayout class="page">
+  <Label text="Create Account" class="h1 text-center"></Label>
+  <StackLayout class="form p-10">
+    <TextField [(ngModel)]="email" hint="Email" keyboardType="email" autocorrect="false" autocapitalizationType="none" class="input input-border"></TextField>
+    <TextField [(ngModel)]="password" hint="Password" secure="true" class="input input-border"></TextField>
+    <TextField [(ngModel)]="confirmPassword" hint="Confirm Password" secure="true" class="input input-border"></TextField>
+    <Button text="Register" (tap)="onRegister()" class="btn btn-primary" [isEnabled]="!isLoading"></Button>
+    <Button text="Back to Login" (tap)="onLogin()" class="btn btn-outline"></Button>
+  </StackLayout>
+  <ActivityIndicator [busy]="isLoading" class="activity-indicator"></ActivityIndicator>
+</StackLayout>
